@@ -40,7 +40,7 @@ async def upload_file(file: UploadFile = File(...), user_id: str = Header(...)):
     }
     files_collection.insert_one(file_metadata)
     
-    return {"message": "File uploaded successfully."}
+    return {"message": "File uploaded successfully", "file_id": file_id}
 
 @file_router.get("/read/{file_id}")
 async def read_file(file_id: str, user_id: str = Header(...)):
